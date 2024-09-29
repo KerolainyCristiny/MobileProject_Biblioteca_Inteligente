@@ -9,8 +9,8 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="459dp"
-        android:layout_height="966dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:foregroundGravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,41 +20,23 @@
 
         <ImageView
             android:id="@+id/elipseLogin"
-            android:layout_width="314dp"
-            android:layout_height="319dp"
+            android:layout_width="281dp"
+            android:layout_height="294dp"
+            android:layout_marginEnd="183dp"
+            android:layout_marginBottom="56dp"
             android:src="@drawable/bcklogin"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textLog_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="121dp"
-            android:layout_marginBottom="95dp"
-            android:text="Log in!"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/elipseLogin"
-            app:layout_constraintEnd_toEndOf="@+id/elipseLogin"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/elipseLogin"
-            app:layout_constraintTop_toTopOf="@+id/elipseLogin" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textBem_vindo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="136dp"
-            android:layout_marginEnd="110dp"
+            android:layout_marginTop="103dp"
+            android:layout_marginEnd="77dp"
             android:layout_marginBottom="64dp"
             android:ellipsize="start"
             android:text="Bem-vindo de volta,"
@@ -64,6 +46,21 @@
             app:layout_constraintEnd_toEndOf="@+id/elipseLogin"
             app:layout_constraintStart_toStartOf="@+id/elipseLogin"
             app:layout_constraintTop_toTopOf="@+id/elipseLogin" />
+
+        <TextView
+            android:id="@+id/textLog_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="103dp"
+            android:text="Log in!"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/elipseLogin"
+            app:layout_constraintEnd_toEndOf="@+id/elipseLogin"
+            app:layout_constraintStart_toStartOf="@+id/elipseLogin" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -113,7 +110,8 @@
                 android:inputType="text"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                />
 
             <TextView
                 android:id="@+id/loginPassword"
@@ -150,8 +148,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="lembrar-me"
-                    />
+                    android:text="lembrar-me" />
 
 
                 <Button
@@ -159,13 +156,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Esqueceu a senha?"
                     android:background="@android:color/transparent"
-                    android:textColor="@color/cinza"
-                    android:padding="10dp"
                     android:drawablePadding="5dp"
                     android:enabled="true"
-                    />
+                    android:padding="10dp"
+                    android:text="Esqueceu a senha?"
+                    android:textColor="@color/cinza" />
             </LinearLayout>
 
         </LinearLayout>
