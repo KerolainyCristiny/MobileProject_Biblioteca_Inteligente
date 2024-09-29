@@ -104,12 +104,12 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/user"
+                android:id="@+id/matricula"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/custom_input"
                 android:drawablePadding="8dp"
-                android:hint="user"
+                android:hint="Matricula"
                 android:inputType="text"
                 android:padding="8dp"
                 android:textColor="@color/black"
