@@ -5,5 +5,7 @@
     <color name="azul">#2264E5</color>
     <color name="cinza">#696969</color>
     <color name="cinzaClaro">#D9D9D9</color>
+    <color name="azulescuro">#1B4F88</color>
+    <color name="azulclaro">#4DA8EB</color>
 
 </resources>

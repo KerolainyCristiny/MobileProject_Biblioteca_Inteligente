@@ -25,40 +25,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ");";
 
 
-//        String CREATE_TABLE_LIVRO = "CREATE TABLE livro (" +
-//                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                "titulo TEXT NOT NULL, " +
-//                "autor TEXT NOT NULL, " +
-//                "resumo TEXT, " +
-//                "quantidade_total INTEGER NOT NULL, " +
-//                "quantidade_reserva INTEGER NOT NULL" +
-//                ");";
+        String CREATE_TABLE_LIVRO = "CREATE TABLE livro (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "titulo TEXT NOT NULL, " +
+                "autor TEXT NOT NULL, " +
+                "resumo TEXT, " +
+                "quantidade_total INTEGER NOT NULL, " +
+                "quantidade_reserva INTEGER NOT NULL" +
+                ");";
 
 
-//        String CREATE_TABLE_RESERVA = "CREATE TABLE reserva (" +
-//                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                "usuario_id INTEGER NOT NULL, " +
-//                "livro_id INTEGER NOT NULL, " +
-//                "data_prevista_retirada TEXT, " +
-//                "FOREIGN KEY(usuario_id) REFERENCES usuario(id), " +
-//                "FOREIGN KEY(livro_id) REFERENCES livro(id)" +
-//                ");";
-
-
-//        String CREATE_TABLE_EMPRESTIMO = "CREATE TABLE emprestimo (" +
-//                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                "usuario_id INTEGER NOT NULL, " +
-//                "livro_id INTEGER NOT NULL, " +
-//                "data_devolucao TEXT, " +
-//                "FOREIGN KEY(usuario_id) REFERENCES usuario(id), " +
-//                "FOREIGN KEY(livro_id) REFERENCES livro(id)" +
-//                ");";
+        String CREATE_TABLE_EMPRESTIMO = "CREATE TABLE emprestimo (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "usuario_id INTEGER NOT NULL, " +
+                "livro_id INTEGER NOT NULL, " +
+                "data_devolucao TEXT, " +
+                "status_emprestimo TEXT NOT NULL,"+
+                "FOREIGN KEY(usuario_id) REFERENCES usuario(id), " +
+                "FOREIGN KEY(livro_id) REFERENCES livro(id)" +
+                ");";
 
         // Executar os creates
         db.execSQL(CREATE_TABLE_USUARIO);
-//        db.execSQL(CREATE_TABLE_LIVRO);
-//        db.execSQL(CREATE_TABLE_RESERVA);
-//        db.execSQL(CREATE_TABLE_EMPRESTIMO);
+        db.execSQL(CREATE_TABLE_LIVRO);
+        db.execSQL(CREATE_TABLE_EMPRESTIMO);
 
 
         // Inserir Usuario

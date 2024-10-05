@@ -5,64 +5,18 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".HomeActivity">
+    tools:context=".BottomNav">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foregroundGravity="center"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-        <LinearLayout
-            android:id="@+id/linearLayout_hometop"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041">
-
-            <ImageView
-                android:id="@+id/iconLogo"
-                android:layout_width="116dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/logoazul" />
-
-            <Button
-                android:id="@+id/barraPesquisa"
-                android:layout_width="270dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="2dp"
-                android:backgroundTint="@color/cinzaClaro"
-                android:paddingRight="10dp"
-                android:text="Busque aqui ..."
-                android:textAlignment="textStart"
-                android:textColor="@color/cinza"
-                android:textSize="14sp" />
-
-            <ImageView
-                android:id="@+id/iconPerfil"
-                android:layout_width="116dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:src="@drawable/ic_usuario" />
-
-        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
@@ -88,5 +42,11 @@
                 app:labelVisibilityMode="unlabeled"
                 app:menu="@menu/bottom_nav_menu" />
         </RelativeLayout>
+
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

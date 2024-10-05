@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/linearLayout_pesquisatop"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:orientation="horizontal"
@@ -45,8 +45,9 @@
                 android:id="@+id/divider"
                 android:layout_width="270dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/white" />
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:paddingRight="10dp"/>
 
             <ImageView
                 android:id="@+id/iconUser"
@@ -55,14 +56,14 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/logoazul" />
+                app:srcCompat="@drawable/ic_usuario" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/pesquisa"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="102dp"
             android:background="@drawable/custom_input"
             android:drawablePadding="8dp"
@@ -77,7 +78,7 @@
             app:layout_constraintBottom_toTopOf="@+id/imageView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_pesquisatop" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -89,6 +90,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logoazul" />
+
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="-60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.939">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="-40dp"
+                android:background="@drawable/bottom_background"
+                app:itemIconSize="30dp"
+                app:itemIconTint="@drawable/item_selector"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/bottom_nav_menu" />
+        </RelativeLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

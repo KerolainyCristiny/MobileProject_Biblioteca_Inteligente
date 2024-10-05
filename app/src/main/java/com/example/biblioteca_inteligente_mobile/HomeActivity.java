@@ -42,19 +42,31 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-//
-//        Button btnBarraPesquisa = findViewById(R.id.barraPesquisa);
-//        btnBarraPesquisa.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                navegarPesquisaActivity();
-//            }
-//        });
+
+        binding.bottomNav.setSelectedItemId(R.id.home);
+        binding.bottomNav.setOnItemSelectedListener(item -> {
+
+
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home) {
+                // Lógico para o item home
+                return true;
+            } else if (itemId == R.id.pesquisamenu) {
+                startActivity(new Intent(getApplicationContext(), PesquisaActivity.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                finish();
+                return true;
+            } else if (itemId == R.id.livros){
+                startActivity(new Intent(getApplicationContext(), BottomNav.class));
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+                finish();
+                return true;
+            }
+
+            return false;
+        });
 
     }
-//
-//    private void navegarPesquisaActivity(){
-//            Intent intent = new Intent(this, PesquisaActivity.class);
-//            startActivity(intent);
-//    }
+
 }

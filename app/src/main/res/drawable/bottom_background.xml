@@ -1,0 +1,18 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:top="5dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/azulclaro"/> <!-- Camada intermediária -->
+            <corners android:radius="40dp"/>
+        </shape>
+    </item>
+    <item android:top="15dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:endColor="@color/azulclaro"
+                android:startColor="@color/azul"/>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+</layer-list>
