@@ -71,14 +71,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String INSERT_LIVROS = "INSERT INTO Livro (titulo, autor, resumo, quantidade_total, quantidade_reserva) VALUES " +
                 "('Dom Quixote', 'Miguel de Cervantes', 'Um romance clássico sobre as aventuras de um cavaleiro errante.', 5, 2), " +
                 "('1984', 'George Orwell', 'Um romance distópico sobre uma sociedade totalitária.', 8, 3), " +
-                "('2017', 'Aditya Bhargava', 'Entendendo Algoritmos', 6, 1)" +
-                "('2017', 'Brian Christian', 'Algoritmos Para Viver', 9, 3)" +
+                "('2017', 'Aditya Bhargava', 'Entendendo Algoritmos', 6, 1), " +
+                "('2017', 'Brian Christian', 'Algoritmos Para Viver', 9, 3), " +
                 "('O Senhor dos Anéis', 'J.R.R. Tolkien', 'Uma fantasia épica sobre a luta contra o mal.', 10, 4);";
 
 
         // Executar os inserts
         db.execSQL(INSERT_USUARIOS);
-//        db.execSQL(INSERT_LIVROS);
+        db.execSQL(INSERT_LIVROS);
 
     } // fim onCreate
 
