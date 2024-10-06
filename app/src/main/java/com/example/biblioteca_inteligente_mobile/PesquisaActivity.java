@@ -1,82 +1,120 @@
 package com.example.biblioteca_inteligente_mobile;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.database.Cursor;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class PesquisaActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
-//    uso do objeto database helper para acessar o banco
-
-//    construtor que inicia o databasehelper com o contexto fornecido
-    public PesquisaActivity(Context context) {
-        this.databaseHelper = new DatabaseHelper(context);
-    }
-
-//    metodo de buscar livros
-    public void buscarLivros(String campo, String valor) {
-    SQLiteDatabase db = databaseHelper.getReadableDatabase();
-//    declaração de campos que vão ser consultados
-    String[] columns = {"id", "titulo", "autor", "resumo", "quantidade_total", "quantidade_reserva"};
-    String selection = campo + " LIKE ?";
-    String[] selectionArgs = { "%" + valor + "%" };
-
-//    usando o obejto "db" para executar a consulta
-    Cursor cursor = db.query(
-            "livro",
-            columns,
-            selection,
-            selectionArgs,
-            null,
-            null,
-            "_id ASC"
-    );
-
-//    saida dos dados
-    StringBuilder resultado = new StringBuilder();
-    while (cursor.moveToNext()) {
-//        int id = cursor.getInt(0); nao precisa pegar o id da table para exibir
-        String titulo = cursor.getString(1);
-        String autor = cursor.getString(2);
-        String resumo = cursor.getString(3);
-        int quantidadeTotal = cursor.getInt(4);
-        int quantidadeReservada = cursor.getInt(5);
-
-//        resultado.append("ID: ").append(id).append("\n");
-        resultado.append("Título: ").append(titulo).append("\n");
-        resultado.append("Autor: ").append(autor).append("\n");
-        resultado.append("Resumo: ").append(resumo).append("\n");
-        resultado.append("Quantidade Total: ").append(quantidadeTotal).append("\n");
-        resultado.append("Quantidade Reservada: ").append(quantidadeReservada).append("\n\n");
-    }
-
-    cursor.close();
-    db.close();
-
-    Log.d("ResultadoPesquisa", resultado.toString());
-
-    // Aqui você pode chamar uma função em Resultados para exibir os resultados
-    // Por exemplo: Resultados.exibirResultados(resultado.toString());
-}
+    private EditText campoEditText;
+    private EditText valorEditText;
+//    private TextView tituloTextView;
+//    private TextView autorTextView;
+//    private TextView resumoTextView;
+    private RecyclerView recyclerView;
+    private LivroAdapter livroAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pesquisa);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+//        recebendo os dados do input layout
+        campoEditText = findViewById(R.id.pesquisa_edit_text);
+        valorEditText = findViewById(R.id.pesquisa_edit_text);
+
+        Button pesquisarButton = findViewById(R.id.pesquisar_button);
+        pesquisarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pesquisarLivros();
+            }
         });
+
+        databaseHelper = new DatabaseHelper(this);
     }
+
+    private void pesquisarLivros() {
+        String valor = valorEditText.getText().toString();
+
+        buscarLivros(valor);
+    }
+
+    @SuppressLint("Range")
+    private void buscarLivros(String valor) {
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+
+        String[] columns = {"titulo", "autor", "resumo"};
+        String selection = "titulo LIKE ?";
+        String[] selectionArgs = {"%" + valor + "%"};
+
+        Cursor cursor = db.query(
+                "livro",
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                "_id ASC"
+        );
+
+        if (cursor != null && cursor.moveToFirst()) {
+            // Process the cursor data
+        } else {
+            cursor.close();
+            db.close();
+            exibirResultados(null);
+            return;
+        }
+
+
+        ArrayList<Livro> livros = new ArrayList<>();
+        do {
+            livros.add(new Livro(
+                    cursor.getString(cursor.getColumnIndex("titulo")),
+                    cursor.getString(cursor.getColumnIndex("autor")),
+                    cursor.getString(cursor.getColumnIndex("resumo"))
+            ));
+        } while (cursor.moveToNext());
+
+
+        cursor.close();
+        db.close();
+
+        exibirResultados(livros);
+        // Inicie ResultadoActivity passando os livros
+        Intent intent = new Intent(this, ResultadoActivity.class);
+        intent.putExtra("livros", livros); // Certifique-se de que Livro implementa Serializable
+        startActivity(intent);
+    }
+
+    private void exibirResultados(ArrayList<Livro> livros) {
+        livroAdapter = new LivroAdapter(livros);
+        recyclerView.setAdapter(livroAdapter);
+    }
+
+//    private void exibirResultados(ArrayList<Livro> livros) {
+//        if (livros.isEmpty()) {
+//            tituloTextView.setText("");
+//            autorTextView.setText("");
+//            resumoTextView.setText("Nenhum livro enco ntrado.");
+//            return;
+//        }
+//
+//        Livro primeiroLivro = livros.get(0);
+//        tituloTextView.setText(primeiroLivro.getTitulo());
+//        autorTextView.setText(primeiroLivro.getAutor());
+//        resumoTextView.setText(primeiroLivro.getResumo());
+//    }
 }
