@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     if( checkUsuario == true){
                         Toast.makeText(MainActivity.this, "Login Sucess", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        intent.putExtra("matricula", matricula); // Passando diretamente o valor da matrícula
                         startActivity(intent);
                     }else {
                         Toast.makeText(MainActivity.this, "Usuario invalido", Toast.LENGTH_SHORT).show();
