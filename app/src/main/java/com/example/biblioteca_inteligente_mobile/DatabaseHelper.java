@@ -25,14 +25,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ");";
 
 
-//        String CREATE_TABLE_LIVRO = "CREATE TABLE livro (" +
-//                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                "titulo TEXT NOT NULL, " +
-//                "autor TEXT NOT NULL, " +
-//                "resumo TEXT, " +
-//                "quantidade_total INTEGER NOT NULL, " +
-//                "quantidade_reserva INTEGER NOT NULL" +
-//                ");";
+        String CREATE_TABLE_LIVRO = "CREATE TABLE livro (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "titulo TEXT NOT NULL, " +
+                "autor TEXT NOT NULL, " +
+                "resumo TEXT, " +
+                "quantidade_total INTEGER NOT NULL, " +
+                "quantidade_reserva INTEGER NOT NULL" +
+                ");";
 
 
 //        String CREATE_TABLE_RESERVA = "CREATE TABLE reserva (" +
@@ -56,7 +56,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Executar os creates
         db.execSQL(CREATE_TABLE_USUARIO);
-//        db.execSQL(CREATE_TABLE_LIVRO);
+        db.execSQL(CREATE_TABLE_LIVRO);
 //        db.execSQL(CREATE_TABLE_RESERVA);
 //        db.execSQL(CREATE_TABLE_EMPRESTIMO);
 
@@ -67,11 +67,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "('00001243', '456');";
 
 
-        // Inserir Livro
-//        String INSERT_LIVROS = "INSERT INTO Livro (titulo, autor, resumo, quantidade_total, quantidade_reserva) VALUES " +
-//                "('Dom Quixote', 'Miguel de Cervantes', 'Um romance clássico sobre as aventuras de um cavaleiro errante.', 5, 2), " +
-//                "('1984', 'George Orwell', 'Um romance distópico sobre uma sociedade totalitária.', 8, 3), " +
-//                "('O Senhor dos Anéis', 'J.R.R. Tolkien', 'Uma fantasia épica sobre a luta contra o mal.', 10, 4);";
+//         Inserir Livro
+        String INSERT_LIVROS = "INSERT INTO Livro (titulo, autor, resumo, quantidade_total, quantidade_reserva) VALUES " +
+                "('Dom Quixote', 'Miguel de Cervantes', 'Um romance clássico sobre as aventuras de um cavaleiro errante.', 5, 2), " +
+                "('1984', 'George Orwell', 'Um romance distópico sobre uma sociedade totalitária.', 8, 3), " +
+                "('2017', 'Aditya Bhargava', 'Entendendo Algoritmos', 6, 1)" +
+                "('2017', 'Brian Christian', 'Algoritmos Para Viver', 9, 3)" +
+                "('O Senhor dos Anéis', 'J.R.R. Tolkien', 'Uma fantasia épica sobre a luta contra o mal.', 10, 4);";
 
 
         // Executar os inserts

@@ -42,19 +42,18 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-//
-//        Button btnBarraPesquisa = findViewById(R.id.barraPesquisa);
-//        btnBarraPesquisa.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                navegarPesquisaActivity();
-//            }
-//        });
+        Button btnBarraPesquisa = findViewById(R.id.barraPesquisa);
+        btnBarraPesquisa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navegarPesquisaActivity();
+            }
+        });
 
     }
-//
-//    private void navegarPesquisaActivity(){
-//            Intent intent = new Intent(this, PesquisaActivity.class);
-//            startActivity(intent);
-//    }
+
+    private void navegarPesquisaActivity(){
+            Intent intent = new Intent(this, PesquisaActivity.class);
+            startActivity(intent);
+   }
 }

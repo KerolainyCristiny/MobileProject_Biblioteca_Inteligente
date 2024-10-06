@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layout_goneMarginBottom="70dp">
 
     <LinearLayout
         android:id="@+id/caixa1"
         android:layout_width="374dp"
-        android:layout_height="113dp"
+        android:layout_height="125dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,25 +32,21 @@
                 app:srcCompat="@drawable/livro__2_" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="2dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="2dp"
-            android:text="A quarta revolução industrial"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        <FrameLayout
+            android:layout_width="247dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="45dp">
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Batista Silva"
-            android:textAlignment="textStart" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:fontFamily="@font/inter"
+                android:text="Em A Segunda Era das Máquinas, Erik Brynjoifsson e Andrew Mcfee. do MIT, - dois pensadores a frente do seu tempo" />
+
+        </FrameLayout>
 
     </LinearLayout>
 
@@ -83,7 +80,7 @@
     <LinearLayout
         android:id="@+id/caixa2"
         android:layout_width="374dp"
-        android:layout_height="113dp"
+        android:layout_height="125dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -105,14 +102,30 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/livro__2_" />
+
         </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="248dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="45dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter"
+                android:text="Em A Segunda Era das Máquinas, Erik Brynjoifsson e Andrew Mcfee. do MIT, - dois pensadores a frente do seu tempo" />
+        </FrameLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/caixa3"
         android:layout_width="374dp"
-        android:layout_height="113dp"
+        android:layout_height="125dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,12 +147,27 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/livro__2_" />
         </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="248dp"
+            android:layout_height="76dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="45dp">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Em A Segunda Era das Máquinas, Erik Brynjoifsson e Andrew Mcfee. do MIT, - dois pensadores a frente do seu tempo" />
+        </FrameLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/caixa4"
         android:layout_width="374dp"
-        android:layout_height="113dp"
+        android:layout_height="125dp"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -161,7 +189,65 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/livro__2_" />
         </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="248dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="45dp">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter"
+                android:text="Em A Segunda Era das Máquinas, Erik Brynjoifsson e Andrew Mcfee. do MIT, - dois pensadores a frente do seu tempo" />
+        </FrameLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:fontFamily="@font/inter"
+        android:text="A quarta revolução industrial"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/caixa1"
+        app:layout_constraintTop_toTopOf="@+id/caixa1"
+        tools:layout_editor_absoluteX="132dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/inter"
+        android:text="A quarta revolução industrial"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/caixa2"
+        app:layout_constraintTop_toTopOf="@+id/caixa2"
+        tools:layout_editor_absoluteX="124dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:fontFamily="@font/inter"
+        android:text="A quarta revolução industrial"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/caixa3"
+        app:layout_constraintTop_toTopOf="@+id/caixa3"
+        app:layout_marginBaseline="70dp"
+        tools:layout_editor_absoluteX="187dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
