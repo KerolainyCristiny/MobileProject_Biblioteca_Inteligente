@@ -19,10 +19,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp">
+            android:padding="18dp"
+            android:background="@drawable/book_home_background">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/book_emprestimo"
                 android:layout_width="59dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="2dp"
@@ -41,16 +42,16 @@
                 android:layout_marginTop="4dp"
                 android:text="Titulo"
                 android:textColor="#00274C"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView" />
+                app:layout_constraintStart_toEndOf="@+id/book_emprestimo"
+                app:layout_constraintTop_toTopOf="@+id/book_emprestimo" />
 
             <TextView
                 android:id="@+id/autor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="5dp"
                 android:text="Autor"
                 android:textSize="12sp"
                 android:textColor="@color/cinza"
@@ -62,8 +63,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="10dp"
                 android:text="00/00/2000"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

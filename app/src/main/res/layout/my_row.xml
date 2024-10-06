@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="1"
                 android:textColor="#000"
-                android:textSize="40sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
                 android:layout_marginLeft="16dp"
                 android:text="Titulo 1"
                 android:textColor="#000"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/book_id_txt"
                 app:layout_constraintTop_toTopOf="@+id/book_id_txt" />

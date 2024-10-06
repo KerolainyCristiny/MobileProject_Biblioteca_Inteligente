@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class CustomAdapterHome extends RecyclerView.Adapter<CustomAdapterHome.My
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapterHome.MyViewHolder holder, int position) {
+        holder.imageView.setImageResource(R.drawable.livrohome);
         holder.titulo.setText(String.valueOf(book_titulo.get(position)));
         holder.autor.setText(String.valueOf(book_autor.get(position)));
         holder.dataDevolucao.setText(String.valueOf(data_devolucao.get(position)));
@@ -48,9 +50,11 @@ public class CustomAdapterHome extends RecyclerView.Adapter<CustomAdapterHome.My
 
         TextView titulo, autor, dataDevolucao;
         LinearLayout mainLayoutHome;
+        ImageView imageView;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.book_emprestimo);
             titulo = itemView.findViewById(R.id.titulo);
             autor = itemView.findViewById(R.id.autor);
             dataDevolucao = itemView.findViewById(R.id.dataDevolucao);

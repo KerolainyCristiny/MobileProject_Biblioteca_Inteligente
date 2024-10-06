@@ -24,12 +24,16 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        db = new DatabaseHelper(this);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        DatabaseHelper db = new DatabaseHelper(this);
+//        DatabaseHelper db = new DatabaseHelper(this);
+
         binding.btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -43,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     Boolean checkUsuario = db.verificarUsuario(matricula,senha);
 
+
                     if( checkUsuario == true){
+
                         Toast.makeText(MainActivity.this, "Login Sucess", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         intent.putExtra("matricula", matricula); // Passando diretamente o valor da matrícula
                         startActivity(intent);
                     }else {

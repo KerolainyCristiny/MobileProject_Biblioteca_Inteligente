@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BottomNav">
+    tools:context=".BottomNav"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -17,6 +18,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/tituloPag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:text="Nosso Acervo"
+            android:textColor="@color/azulescuro"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_pesquisatop" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="43dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="46dp"
+            app:layout_constraintStart_toStartOf="@+id/recyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_pesquisatop"
+            app:srcCompat="@drawable/livropag" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
@@ -43,12 +66,52 @@
                 app:menu="@menu/bottom_nav_menu" />
         </RelativeLayout>
 
+        <LinearLayout
+            android:id="@+id/linearLayout_pesquisatop"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.041">
+
+            <ImageView
+                android:id="@+id/iconLogo"
+                android:layout_width="116dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/logoazul" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/white"
+                android:paddingRight="10dp"/>
+
+            <ImageView
+                android:id="@+id/iconUser"
+                android:layout_width="116dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_usuario" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="361dp"
-            android:layout_height="608dp"
-            android:layout_marginTop="36dp"
+            android:layout_width="344dp"
+            android:layout_height="546dp"
+            android:layout_marginTop="180dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

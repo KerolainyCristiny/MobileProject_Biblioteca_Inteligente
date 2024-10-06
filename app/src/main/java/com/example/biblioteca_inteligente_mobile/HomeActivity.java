@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     ActivityHomeBinding binding;
+
     RecyclerView recyclerView;
     DatabaseHelper db;
     ArrayList<String> book_titulo,book_autor, data_devolucao;
@@ -43,81 +44,65 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
 
-        // barra pesquisa
-        binding.barraPesquisa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                    Toast.makeText(HomeActivity.this, "Acess Pesquisa", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), PesquisaActivity.class);
-                    startActivity(intent);
-
-
-            }
+        // Barra pesquisa
+        binding.barraPesquisa.setOnClickListener(view -> {
+            Toast.makeText(HomeActivity.this, "Acess Pesquisa", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, PesquisaActivity.class);
+            startActivity(intent);
         });
-        // menu bottom
+
+        // Menu bottom
         binding.bottomNav.setSelectedItemId(R.id.home);
         binding.bottomNav.setOnItemSelectedListener(item -> {
-
             int itemId = item.getItemId();
-
-            if (itemId == R.id.home) {
-                // Lógico para o item home
-                return true;
-            } else if (itemId == R.id.pesquisamenu) {
-                startActivity(new Intent(getApplicationContext(), PesquisaActivity.class));
-                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            if (itemId == R.id.home || itemId == R.id.pesquisamenu) {
+                Intent intent = new Intent(this, PesquisaActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
-            } else if (itemId == R.id.livros){
-                startActivity(new Intent(getApplicationContext(), BottomNav.class));
-                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            } else if (itemId == R.id.livros) {
+                Intent intent = new Intent(this, BottomNav.class);
+                startActivity(intent);
                 finish();
                 return true;
             }
-
             return false;
-        });//menu fim
+        });
 
-        //emprestimo
+        // Emprestimo
         recyclerView = findViewById(R.id.recyclerView);
         db = new DatabaseHelper(this);
         book_titulo = new ArrayList<>();
         book_autor = new ArrayList<>();
         data_devolucao = new ArrayList<>();
 
-
-//        dadosEmprestimo();
-//
-//        customAdapterHome = new CustomAdapterHome (HomeActivity.this, book_titulo, book_autor, data_devolucao);
-//        recyclerView.setAdapter(customAdapterHome);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(HomeActivity.this));
-
-
-    }// metodo
-
-    public void dadosEmprestimo(){
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            matricula = extras.getString("matricula");
-
-            if (matricula != null && !matricula.isEmpty()) {
-                try (Cursor cursor = db.readEmprestimo(matricula)) {
-                    if(cursor.getCount() == 0){
-                        Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
-                    }else{
-                        while (cursor.moveToNext()){
-                            book_titulo.add(cursor.getString(0));
-                            book_autor.add(cursor.getString(1));
-                            data_devolucao.add(cursor.getString(2));
-                        }
-                    }
-                }
-            }
+        matricula = getIntent().getStringExtra("matricula");
+        if (matricula != null && !matricula.isEmpty()) {
+            dadosEmprestimo(matricula);
+        } else {
+            Toast.makeText(this, "Dados não encontrados", Toast.LENGTH_SHORT).show();
         }
 
-
+        customAdapterHome = new CustomAdapterHome(this, book_titulo, book_autor, data_devolucao);
+        recyclerView.setAdapter(customAdapterHome);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-}//class
+    private void dadosEmprestimo(String matricula) {
+        if (db.readEmprestimo(matricula) != null) {
+            Cursor cursor = db.readEmprestimo(matricula);
+            if (cursor.getCount() == 0) {
+                Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
+            } else {
+                while (cursor.moveToNext()) {
+                    book_titulo.add(cursor.getString(0));
+                    book_autor.add(cursor.getString(1));
+                    data_devolucao.add(cursor.getString(2));
+                }
+                cursor.close(); // Não esqueça de fechar o cursor após usar
+            }
+        } else {
+            Toast.makeText(this, "Erro ao ler os emprestimos", Toast.LENGTH_SHORT).show();
+        }
+    }
+}

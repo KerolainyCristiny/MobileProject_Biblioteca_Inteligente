@@ -63,7 +63,7 @@
             android:id="@+id/pesquisa"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="102dp"
             android:background="@drawable/custom_input"
             android:drawablePadding="8dp"
@@ -92,6 +92,18 @@
             app:srcCompat="@drawable/logoazul" />
 
 
+        <Button
+            android:id="@+id/buttonPesquisa"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text= "."
+            app:iconGravity="textStart"
+            app:iconSize="40dp"
+            android:drawableLeft= "@drawable/ic_search"
+            android:drawablePadding="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/pesquisa"
+            app:layout_constraintTop_toBottomOf="@+id/pesquisa" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout"

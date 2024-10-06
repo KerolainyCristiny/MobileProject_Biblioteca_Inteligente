@@ -21,15 +21,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:paddingTop="?attr/actionBarSize"
-
             android:layout_width="406dp"
-            android:layout_height="wrap_content"
+            android:layout_height="608dp"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/introEmprestimo" />
+            app:layout_constraintTop_toBottomOf="@+id/introEmprestimo"/>
 
         <TextView
             android:id="@+id/intro"
@@ -40,6 +38,7 @@
             android:text="Olá Estudante !"
             android:textSize="25sp"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout_hometop" />
 

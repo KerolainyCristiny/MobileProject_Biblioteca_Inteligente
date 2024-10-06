@@ -51,15 +51,18 @@ public class BottomNav extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if (itemId == R.id.home) {
-            // Lógico para o item home
+            Intent intent = new Intent(BottomNav.this, HomeActivity.class);
+            intent.putExtra("matricula", "00001242"); // Passando diretamente o valor da matrícula
+            startActivity(intent);
+            finish();
             return true;
         } else if (itemId == R.id.pesquisamenu) {
-
+            Intent intent = new Intent(BottomNav.this, PesquisaActivity.class);
+            startActivity(intent);
+            finish();
             return true;
         } else if (itemId == R.id.livros){
-            startActivity(new Intent(getApplicationContext(), BottomNav.class));
-            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-            finish();
+            ;
             return true;
         }
 

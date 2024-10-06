@@ -40,25 +40,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "FOREIGN KEY(livro_id) REFERENCES livro(id)" +
                     ");";
 
+            db.execSQL("PRAGMA foreign_keys = ON;");
+            db.execSQL(emprestimo);
             db.execSQL(usuario);
             db.execSQL(livro);
-            db.execSQL(emprestimo);
+
 
             String INSERT_USUARIOS = "INSERT INTO usuario (matricula, senha) VALUES " +
                     "('00001242', '123'), " +
                     "('00001243', '456');";
 
             String INSERT_LIVROS = "INSERT INTO livro (titulo, autor, resumo) VALUES " +
-                    "('Dom Quixote', 'Miguel de Cervantes', 'a'), " +
-                    "('1984', 'George Orwell', 'a'), " +
-                    "('O Senhor dos Anéis', 'J.R.R. Tolkien', 'a');";
+                    "('Introdução à Programação', 'José da Silva', 'Uma introdução aos conceitos básicos de programação.'), " +
+                    "('Estruturas de Dados', 'Maria Oliveira', 'Estudo das principais estruturas de dados e suas aplicações.'), " +
+                    "('Algoritmos: Teoria e Prática', 'Carlos Pereira', 'Abordagem prática sobre algoritmos e suas complexidades.'), " +
+                    "('Banco de Dados: Fundamentos', 'Ana Souza', 'Conceitos fundamentais sobre bancos de dados relacionais.'), " +
+                    "('Sistemas Operacionais', 'Fernando Almeida', 'Análise dos principais sistemas operacionais modernos.');";
 
             String INSERT_EMPRESTIMO = "INSERT INTO emprestimo (usuario_id, livro_id, data_devolucao) VALUES" +
-                    "('00001242', '1', '00/00/2000');";
+                    "('00001242', '1', '00/00/2000'), ('00001242', '2', '00/00/2000');";
 
             db.execSQL(INSERT_USUARIOS);
-            db.execSQL(INSERT_LIVROS);
             db.execSQL(INSERT_EMPRESTIMO);
+            db.execSQL(INSERT_LIVROS);
+
+
+
         }
 
         @Override
@@ -96,15 +103,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         SQLiteDatabase db = this.getReadableDatabase();
+//        String query = "SELECT livro.titulo, livro.autor, emprestimo.data_devolucao " +
+//                "FROM livro " +
+//                "INNER JOIN emprestimo ON livro.id = emprestimo.livro_id " +
+//                "INNER JOIN usuario ON emprestimo.usuario_id = usuario.id " +
+//                "WHERE usuario.matricula = ?";
+
+
+
         String query = "SELECT livro.titulo, livro.autor, emprestimo.data_devolucao " +
                 "FROM livro " +
-                "INNER JOIN emprestimo ON livro.id = emprestimo.livro_id " +
-                "INNER JOIN usuario ON emprestimo.usuario_id = usuario.id " +
-                "WHERE usuario.matricula = ?";
+                "INNER JOIN emprestimo ON livro.id = emprestimo.livro_id ";
 
-        Cursor cursor = db.rawQuery(query, new String[]{matricula});
+
+        Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }
+
+
 
         public boolean tableExists(String tableName) {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -119,20 +135,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL("CREATE TABLE IF NOT EXISTS livro (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT NOT NULL, autor TEXT NOT NULL);");
 
             String INSERT_LIVROS = "INSERT INTO livro (titulo, autor, resumo) VALUES " +
-                    "('Dom Quixote', 'Miguel de Cervantes', 'a'), " +
-                    "('1984', 'George Orwell', 'a'), " +
-                    "('O Senhor dos Anéis', 'J.R.R. Tolkien', 'a');";
+                    "('Introdução à Programação', 'José da Silva', 'Uma introdução aos conceitos básicos de programação.'), " +
+                    "('Estruturas de Dados', 'Maria Oliveira', 'Estudo das principais estruturas de dados e suas aplicações.'), " +
+                    "('Algoritmos: Teoria e Prática', 'Carlos Pereira', 'Abordagem prática sobre algoritmos e suas complexidades.'), " +
+                    "('Banco de Dados: Fundamentos', 'Ana Souza', 'Conceitos fundamentais sobre bancos de dados relacionais.'), " +
+                    "('Sistemas Operacionais', 'Fernando Almeida', 'Análise dos principais sistemas operacionais modernos.');";
+
             db.execSQL(INSERT_LIVROS);
 
             db.close();
         }
 
     public void createTableEmprestimo() {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = DatabaseHelper.this.getWritableDatabase();
+
         db.execSQL("CREATE TABLE IF NOT EXISTS emprestimo (id INTEGER PRIMARY KEY AUTOINCREMENT, usuario_id INTEGER NOT NULL,livro_id INTEGER NOT NULL,data_devolucao TEXT,FOREIGN KEY(usuario_id) REFERENCES usuario(id),FOREIGN KEY(livro_id) REFERENCES livro(id));");
 
         String INSERT_EMPRESTIMO = "INSERT INTO emprestimo (usuario_id, livro_id, data_devolucao) VALUES" +
-                "(00001242, 1, '00/00/2000');";
+                "('00001242', '5', '00/00/2000'), ('00001242', '2', '00/00/2000');";
+
         db.execSQL(INSERT_EMPRESTIMO);
 
         db.close();
