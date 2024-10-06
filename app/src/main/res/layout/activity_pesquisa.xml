@@ -59,21 +59,21 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/pesquisa"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:id="@+id/pesquisa_edit_text"
+            android:layout_width="372dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="25dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="102dp"
             android:background="@drawable/custom_input"
             android:drawablePadding="8dp"
             android:hint="Busque aqui ..."
             android:inputType="text"
             android:padding="8dp"
+
             android:textColor="@color/black"
             android:textSize="14sp"
-
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             app:layout_constraintBottom_toTopOf="@+id/imageView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,6 +89,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logoazul" />
+
+        <Button
+            android:id="@+id/pesquisar_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="buscar"
+            app:layout_constraintBottom_toBottomOf="@+id/pesquisa_edit_text"
+            app:layout_constraintEnd_toEndOf="@+id/pesquisa_edit_text"
+            app:layout_constraintHorizontal_bias="0.984"
+            app:layout_constraintStart_toStartOf="@+id/pesquisa_edit_text"
+            app:layout_constraintTop_toTopOf="@+id/pesquisa_edit_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
