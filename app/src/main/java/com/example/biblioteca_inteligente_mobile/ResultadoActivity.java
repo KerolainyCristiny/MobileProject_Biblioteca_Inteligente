@@ -1,5 +1,6 @@
 package com.example.biblioteca_inteligente_mobile;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -37,6 +38,35 @@ public class ResultadoActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        // Menu bottom
+        binding.bottomNav.setSelectedItemId(R.id.pesquisamenu);
+        binding.bottomNav.setOnItemSelectedListener(item -> {
+
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.pesquisamenu) {
+                Intent intent = new Intent(ResultadoActivity.this, PesquisaActivity.class);
+                startActivity(intent);
+                finish();
+
+                return true;
+            } else if (itemId == R.id.home) {
+                Intent intent = new Intent(ResultadoActivity.this, HomeActivity.class);
+                intent.putExtra("matricula", "00001242"); // Passando diretamente o valor da matrícula
+                startActivity(intent);
+                finish();
+                return true;
+            } else if (itemId == R.id.livros){
+                Intent intent = new Intent(ResultadoActivity.this, BottomNav.class);
+                startActivity(intent);
+                finish();
+                return true;
+            }
+
+            return false;
+        });
+
+
 
         pesquisa = getIntent().getStringExtra("pesquisa");
 

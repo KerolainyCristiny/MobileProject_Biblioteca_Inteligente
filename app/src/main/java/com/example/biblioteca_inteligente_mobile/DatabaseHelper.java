@@ -55,7 +55,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "('Estruturas de Dados', 'Maria Oliveira', 'Estudo das principais estruturas de dados e suas aplicações.'), " +
                     "('Algoritmos: Teoria e Prática', 'Carlos Pereira', 'Abordagem prática sobre algoritmos e suas complexidades.'), " +
                     "('Banco de Dados: Fundamentos', 'Ana Souza', 'Conceitos fundamentais sobre bancos de dados relacionais.'), " +
-                    "('Sistemas Operacionais', 'Fernando Almeida', 'Análise dos principais sistemas operacionais modernos.');";
+                    "('Sistemas Operacionais', 'Fernando Almeida', 'Análise dos principais sistemas operacionais modernos.'), " +
+                    "('Matemática Discreta', 'Luiza Ramos', 'Fundamentos da matemática discreta com aplicações em ciência da computação.'), " +
+                    "('Teoria da Computação', 'Pedro Santos', 'Exploração dos fundamentos teóricos da computação e linguagens formais.'), " +
+                    "('Redes de Computadores', 'Mariana Costa', 'Estudo dos princípios e práticas de redes de computadores.'), " +
+                    "('Engenharia de Software', 'Ricardo Lima', 'Metodologias e práticas para o desenvolvimento de software de qualidade.'), " +
+                    "('Inteligência Artificial', 'Patrícia Nunes', 'Introdução aos conceitos e técnicas de inteligência artificial.'), " +
+                    "('Estatística Aplicada', 'Fernando Martins', 'Abordagem prática sobre técnicas estatísticas em diversas áreas.'), " +
+                    "('Física Geral', 'Juliana Ferreira', 'Conceitos fundamentais da física clássica e moderna.'), " +
+                    "('Química Orgânica', 'Eduardo Gomes', 'Estudo das principais reações e conceitos da química orgânica.');";
+
 
             String INSERT_EMPRESTIMO = "INSERT INTO emprestimo (usuario_id, livro_id, data_devolucao) VALUES" +
                     "('00001242', '1', '00/00/2000'), ('00001242', '2', '00/00/2000');";
@@ -145,12 +154,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             SQLiteDatabase db = this.getWritableDatabase();
             db.execSQL("CREATE TABLE IF NOT EXISTS livro (id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT NOT NULL, autor TEXT NOT NULL);");
 
-            String INSERT_LIVROS = "INSERT INTO livro (titulo, autor, resumo) VALUES " +
+           String INSERT_LIVROS = "INSERT INTO livro (titulo, autor, resumo) VALUES " +
                     "('Introdução à Programação', 'José da Silva', 'Uma introdução aos conceitos básicos de programação.'), " +
                     "('Estruturas de Dados', 'Maria Oliveira', 'Estudo das principais estruturas de dados e suas aplicações.'), " +
                     "('Algoritmos: Teoria e Prática', 'Carlos Pereira', 'Abordagem prática sobre algoritmos e suas complexidades.'), " +
                     "('Banco de Dados: Fundamentos', 'Ana Souza', 'Conceitos fundamentais sobre bancos de dados relacionais.'), " +
-                    "('Sistemas Operacionais', 'Fernando Almeida', 'Análise dos principais sistemas operacionais modernos.');";
+                    "('Sistemas Operacionais', 'Fernando Almeida', 'Análise dos principais sistemas operacionais modernos.'), " +
+                    "('Matemática Discreta', 'Luiza Ramos', 'Fundamentos da matemática discreta com aplicações em ciência da computação.'), " +
+                    "('Teoria da Computação', 'Pedro Santos', 'Exploração dos fundamentos teóricos da computação e linguagens formais.'), " +
+                    "('Redes de Computadores', 'Mariana Costa', 'Estudo dos princípios e práticas de redes de computadores.'), " +
+                    "('Engenharia de Software', 'Ricardo Lima', 'Metodologias e práticas para o desenvolvimento de software de qualidade.'), " +
+                    "('Inteligência Artificial', 'Patrícia Nunes', 'Introdução aos conceitos e técnicas de inteligência artificial.'), " +
+                    "('Estatística Aplicada', 'Fernando Martins', 'Abordagem prática sobre técnicas estatísticas em diversas áreas.'), " +
+                    "('Física Geral', 'Juliana Ferreira', 'Conceitos fundamentais da física clássica e moderna.'), " +
+                    "('Química Orgânica', 'Eduardo Gomes', 'Estudo das principais reações e conceitos da química orgânica.');";
 
             db.execSQL(INSERT_LIVROS);
 
