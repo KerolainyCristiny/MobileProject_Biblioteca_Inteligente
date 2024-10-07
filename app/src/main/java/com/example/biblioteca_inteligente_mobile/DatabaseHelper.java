@@ -102,7 +102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT titulo, autor, resumo FROM livro WHERE titulo Like '%" + pesquisa + "';";
+        String query = "SELECT titulo, autor, resumo FROM livro WHERE titulo LIKE '%" + pesquisa + "' OR titulo LIKE ' "+ pesquisa + "%' OR titulo LIKE '%"+ pesquisa + "%'";
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }
