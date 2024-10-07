@@ -96,6 +96,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Cursor cursor = db.rawQuery(query, null);
             return cursor;
         }
+    public Cursor pesquisaLivro(String pesquisa) {
+        if (!tableExists("livro")) {
+            createTableLivro();
+        }
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT titulo, autor, resumo FROM livro WHERE titulo Like '%" + pesquisa + "';";
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
 
     public Cursor readEmprestimo(String matricula) {
         if (!tableExists("emprestimo")) {
