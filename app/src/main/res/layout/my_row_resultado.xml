@@ -13,17 +13,17 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="14dp">
 
             <TextView
                 android:id="@+id/tituloRes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="202dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="96dp"
                 android:text="Titulo"
-                android:textSize="18sp"
                 android:textColor="@color/azulescuro"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -33,19 +33,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Autor"
-                android:textSize="12sp"
                 android:textColor="@color/cinza"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tituloRes"
                 app:layout_constraintTop_toBottomOf="@+id/tituloRes" />
 
             <TextView
                 android:id="@+id/resumoRes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="202dp"
+                android:layout_height="44dp"
                 android:text="resumo"
                 android:textSize="10sp"
                 app:layout_constraintStart_toStartOf="@+id/autorRes"
                 app:layout_constraintTop_toBottomOf="@+id/autorRes" />
+
+            <FrameLayout
+                android:id="@+id/capa_livro"
+                android:layout_width="69dp"
+                android:layout_height="75dp"
+                android:background="@drawable/box_radious_livro"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
