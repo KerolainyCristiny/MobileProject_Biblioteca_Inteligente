@@ -1,5 +1,6 @@
 package com.example.biblioteca_inteligente_mobile;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +13,19 @@ import java.util.ArrayList;
 
 public class LivroAdapter extends RecyclerView.Adapter<LivroAdapter.LivroViewHolder> {
     private final ArrayList<Livro> livros;
+    private final Context context;
 
     // Construtor do adaptador
-    public LivroAdapter(ArrayList<Livro> livros) {
+    public LivroAdapter(ArrayList<Livro> livros, Context context) {
         this.livros = livros;
+        this.context = context;
     }
+
 
     @NonNull
     @Override
     public LivroViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Infla o layout para cada item
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_livro, parent, false);
-        return new LivroViewHolder(view);
+        return null;
     }
 
     @Override
